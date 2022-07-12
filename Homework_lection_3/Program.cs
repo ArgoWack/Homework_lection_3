@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Homework_lection_3
 {
@@ -6,20 +7,36 @@ namespace Homework_lection_3
     {
         public static int factorial_function_with_LINQ(int input)
         {
-            int score = 0;
+            //To DO:
+            // turn it into LINQ method
 
-            //To Do:
+            // input - number of factorial 
 
-            return score;
+            if (input == 0 || input == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return input * factorial_function_with_LINQ(input - 1);
+            }
         }
 
         public static int Fibonacci_sequence_with_LINQ(int input)
         {
-            int score = 0;
+            //To DO:
+            // turn it into LINQ method
 
-            //To Do:
+            // input - number of fibonaci 
 
-            return score;
+            if (input == 0 || input == 1)
+            {
+                return input;
+            }
+            else
+            {
+                return Fibonacci_sequence_with_LINQ(input - 1) + Fibonacci_sequence_with_LINQ(input - 2);
+            }          
         }
         static void Main(string[] args)
         {
