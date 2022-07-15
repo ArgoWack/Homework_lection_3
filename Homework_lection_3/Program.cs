@@ -9,12 +9,16 @@ namespace Homework_lection_3
         public static int factorial_function_with_LINQ(int input)
         {
             IEnumerable<int> values = Enumerable.Range(1, input);
-            return values.Aggregate((acumulator,next_value) => acumulator * next_value);          
+            if (input == 0)
+                return 1;
+            else
+                return values.Aggregate((acumulator,next_value) => acumulator * next_value);          
         }
 
         public static int Fibonacci_sequence_with_LINQ(int input)
         {
-
+            if (input == 0)
+                return 0;
             return Enumerable.Range(0, input).Skip(1).Aggregate(new { previous = 0, current = 1 }, (previous, _) => new { previous = previous.current, current = previous.previous + previous.current }).current;
 
             /*
@@ -33,12 +37,16 @@ namespace Homework_lection_3
         }
         static void Main(string[] args)
         {
-            int test_value=5;
+            /* I don't know whether I should handle exceptions here since they can't appear as long as int is given to methods below.
+               I would implement them if user would be to write input from console tho.*/
 
-            WriteLine(factorial_function_with_LINQ(test_value));
-            WriteLine(Fibonacci_sequence_with_LINQ(test_value));
+            int test_value = 1;
+
+            WriteLine("Factorial: " + factorial_function_with_LINQ(test_value));
+            WriteLine("Fibonacci: " + Fibonacci_sequence_with_LINQ(test_value));
 
             ReadKey();
+
         }
     }
 }
